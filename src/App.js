@@ -7,7 +7,7 @@ class App extends Component {
     this.state = {
       audio: null
     };
-    this.toggleMicrophone = this.toggleMicrophone.bind(this);
+    // this.toggleMicrophone = this.toggleMicrophone.bind(this);
   }
 
   async getMicrophone() {
@@ -22,22 +22,23 @@ class App extends Component {
     this.setState({ audio: null });
   }
 
-  toggleMicrophone() {
-    if (this.state.audio) {
-      this.stopMicrophone();
-    } else {
-      this.getMicrophone();
-    }
-  }
+  // toggleMicrophone() {
+  //   if (this.state.audio) {
+  //     this.stopMicrophone();
+  //   } else {
+      
+  //   }
+  // }
 
   render() {
+    this.getMicrophone();
     return (
       <div className="App">
-        <div className="controls">
+        {/* <div className="controls">
           <button onClick={this.toggleMicrophone}>
             {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
           </button>
-        </div>
+        </div> */}
         {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
       </div>
     );
